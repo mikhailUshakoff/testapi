@@ -52,7 +52,10 @@ interface IFlexAPI {
     //linear chart
     function getLinearChart(address tradingPair, uint32 startTime, uint32 endTime, uint32 stepTime) external;// returns (mapping(uint32=>TradeData) prices);
     function getXchgLinearChart(address xchgTradingPair, uint32 startTime, uint32 endTime, uint32 stepTime) external;// returns (mapping(uint32=>XchgTradeData) prices);
-
+    //buy order msg
+    function getBuyOrderMsg(address tradingPair, uint128 price, uint128 volume) external;
+    //sell order msg
+    function getSellOrderMsg(address tradingPair, uint128 price, uint128 volume) external;
 }
 
 interface IFlexAPIOnGetPairs {
@@ -77,4 +80,34 @@ interface IFlexAPIOnGetCandlestickChart {
 interface IFlexAPIOnGetLinearChart {
     function onGetLinearChart(mapping(uint32=>TradeData) prices) external;
     function onGetXchgLinearChart(mapping(uint32=>TradeData) prices) external;
+}
+
+interface IFlexAPIOnGetOrderMsg {
+    function onGetBuyOrderMsg(TvmCell message) external;
+    function onGetSellOrderMsg(TvmCell message) external;
+}
+
+contract ResponseABI is IFlexAPIOnGetPairs,
+                        IFlexAPIOnGetOrderBook,
+                        IFlexAPIOnGetPriceTickHistory,
+                        IFlexAPIOnGetCandlestickChart,
+                        IFlexAPIOnGetLinearChart,
+                        IFlexAPIOnGetOrderMsg
+{
+    function onGetPairs(Tip3Tip3PairInfo[] tip3tip3Pairs, Tip3TonPairInfo[] tip3tonPairs) external override {}
+
+    function onGetOrderBook(OrderBookRow[] orderBook) external override {}
+    function onGetXchgOrderBook(OrderBookRow[] orderBook) external override {}
+
+    function onGetPriceTickHistory(mapping(uint32=>TradeData[]) history) external override {}
+    function onGetXchgPriceTickHistory(mapping(uint32=>TradeData[]) history) external override {}
+
+    function onGetCandlestickChart(mapping(uint32=>Candlestick) candles) external override {}
+    function onGetXchgCandlestickChart(mapping(uint32=>Candlestick) candles) external override {}
+
+    function onGetLinearChart(mapping(uint32=>TradeData) prices) external override {}
+    function onGetXchgLinearChart(mapping(uint32=>TradeData) prices) external override {}
+
+    function onGetBuyOrderMsg(TvmCell message) external override {}
+    function onGetSellOrderMsg(TvmCell message) external override {}
 }

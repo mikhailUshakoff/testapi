@@ -33,6 +33,7 @@ let logger = document.getElementById("log");
 
     for (let i in obj.tip3tonPairs) {
         let pair = obj.tip3tonPairs[i];
+        logger.textContent += '\n';
 
         logger.textContent += `Calling getOrderBook for ${hexToUtf8(pair.symbol)}...\n`;
         manifest = buildManifest("getOrderBook", `{"tradingPair":"${pair.tradingPair}"}`);
@@ -44,5 +45,10 @@ let logger = document.getElementById("log");
         const chart = await browser.run_debot_browser("net.ton.dev", null, null, null, manifest);
         logger.textContent += chart;
     }
-    
+
+    logger.textContent += `\nCalling getBuyOrderMsg...\n`;
+    let pairAddr = "0:b2b4a7d0af8c9a33ae4a2dd6675cb97d9cd25db2fcf6370402dc7931e9c2f473";//OTO pair
+    manifest = buildManifest("getBuyOrderMsg", `{"tradingPair":"${pairAddr}","price":500000000,"volume":50}`);
+    const msg = await browser.run_debot_browser("net.ton.dev", null, null, null, manifest);
+    logger.textContent += msg;
 })();

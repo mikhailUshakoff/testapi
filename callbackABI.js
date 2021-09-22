@@ -76,6 +76,22 @@ const abi = `{
 			]
 		},
 		{
+			"name": "onGetBuyOrderMsg",
+			"inputs": [
+				{"name":"message","type":"cell"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "onGetSellOrderMsg",
+			"inputs": [
+				{"name":"message","type":"cell"}
+			],
+			"outputs": [
+			]
+		},
+		{
 			"name": "constructor",
 			"inputs": [
 			],
