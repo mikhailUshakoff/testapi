@@ -46,9 +46,16 @@ let logger = document.getElementById("log");
         logger.textContent += chart;
     }
 
-    logger.textContent += `\nCalling getBuyOrderMsg...\n`;
+    logger.textContent += `\n\nCalling getBuyOrderMsg...\n`;
     let pairAddr = "0:b2b4a7d0af8c9a33ae4a2dd6675cb97d9cd25db2fcf6370402dc7931e9c2f473";//OTO pair
     manifest = buildManifest("getBuyOrderMsg", `{"tradingPair":"${pairAddr}","price":500000000,"volume":50}`);
     const msg = await browser.run_debot_browser("net.ton.dev", null, null, null, manifest);
     logger.textContent += msg;
-})();
+
+    logger.textContent += `\n\nCreating deep link...\n`;
+    const flexDebot = "0:5dc50f38c2f04a1cf701af8638009a466fccca8d98698000d67038cae2c95394";
+    let netName = "devnet";
+    let json = JSON.parse(msg);
+    let link = `https://uri.ton.surf/debot/${flexDebot}?message=${json['message']}&net=${netName}`;
+    logger.textContent += link;
+ })();
