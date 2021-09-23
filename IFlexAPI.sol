@@ -23,12 +23,15 @@ struct Candlestick {
 
 struct Tip3Tip3PairInfo {
     string symbolMajor;
+    uint8 decimalsMajor;
     string symbolMinor;
+    uint8 decimalsMinor;
     address xchgTradingPair;
 }
 
 struct Tip3TonPairInfo {
     string symbol;
+    uint8 decimals;
     address tradingPair;
 }
 
