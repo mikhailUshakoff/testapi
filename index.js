@@ -28,7 +28,8 @@ let logger = document.getElementById("log");
     let obj = JSON.parse(answer);
     //logger.textContent += `success:\nDEBUG: ${JSON.stringify(obj, null, ' ')}\n`;
     for (let i in obj.tip3tonPairs) {
-        logger.textContent += `Name: ${hexToUtf8(obj.tip3tonPairs[i].symbol)} PairAddr: ${obj.tip3tonPairs[i].tradingPair}\n`;
+        logger.textContent += `Name: ${hexToUtf8(obj.tip3tonPairs[i].symbol)} Decimals: ${obj.tip3tonPairs[i].decimals} PairAddr: ${obj.tip3tonPairs[i].tradingPair}\n`;
+
     }
 
     for (let i in obj.tip3tonPairs) {
@@ -48,7 +49,7 @@ let logger = document.getElementById("log");
 
     logger.textContent += `\n\nCalling getBuyOrderMsg...\n`;
     let pairAddr = "0:b2b4a7d0af8c9a33ae4a2dd6675cb97d9cd25db2fcf6370402dc7931e9c2f473";//OTO pair
-    manifest = buildManifest("getBuyOrderMsg", `{"tradingPair":"${pairAddr}","price":500000000,"volume":50}`);
+    manifest = buildManifest("getBuyOrderMsg", `{"tradingPair":"${pairAddr}","price":600000000,"volume":5}`);
     const msg = await browser.run_debot_browser("net.ton.dev", null, null, null, manifest);
     logger.textContent += msg;
 

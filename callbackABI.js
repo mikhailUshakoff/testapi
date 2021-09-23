@@ -5,8 +5,8 @@ const abi = `{
 		{
 			"name": "onGetPairs",
 			"inputs": [
-				{"components":[{"name":"symbolMajor","type":"bytes"},{"name":"symbolMinor","type":"bytes"},{"name":"xchgTradingPair","type":"address"}],"name":"tip3tip3Pairs","type":"tuple[]"},
-				{"components":[{"name":"symbol","type":"bytes"},{"name":"tradingPair","type":"address"}],"name":"tip3tonPairs","type":"tuple[]"}
+				{"components":[{"name":"symbolMajor","type":"bytes"},{"name":"decimalsMajor","type":"uint8"},{"name":"symbolMinor","type":"bytes"},{"name":"decimalsMinor","type":"uint8"},{"name":"xchgTradingPair","type":"address"}],"name":"tip3tip3Pairs","type":"tuple[]"},
+				{"components":[{"name":"symbol","type":"bytes"},{"name":"decimals","type":"uint8"},{"name":"tradingPair","type":"address"}],"name":"tip3tonPairs","type":"tuple[]"}
 			],
 			"outputs": [
 			]
