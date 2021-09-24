@@ -13,10 +13,15 @@ struct TradeData {
     string volume;
 }
 
+struct TradeDataUint {
+    uint128 price;
+    uint128 volume;
+}
+
 struct Candlestick {
     string open;
     string close;
-    string hight;
+    string high;
     string low;
     string volume;
 }

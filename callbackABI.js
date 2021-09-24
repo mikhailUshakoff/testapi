@@ -46,7 +46,7 @@ const abi = `{
 		{
 			"name": "onGetCandlestickChart",
 			"inputs": [
-				{"components":[{"name":"open","type":"bytes"},{"name":"close","type":"bytes"},{"name":"hight","type":"bytes"},{"name":"low","type":"bytes"},{"name":"volume","type":"bytes"}],"name":"candles","type":"map(uint32,tuple)"}
+				{"components":[{"name":"open","type":"bytes"},{"name":"close","type":"bytes"},{"name":"high","type":"bytes"},{"name":"low","type":"bytes"},{"name":"volume","type":"bytes"}],"name":"candles","type":"map(uint32,tuple)"}
 			],
 			"outputs": [
 			]
@@ -54,7 +54,7 @@ const abi = `{
 		{
 			"name": "onGetXchgCandlestickChart",
 			"inputs": [
-				{"components":[{"name":"open","type":"bytes"},{"name":"close","type":"bytes"},{"name":"hight","type":"bytes"},{"name":"low","type":"bytes"},{"name":"volume","type":"bytes"}],"name":"candles","type":"map(uint32,tuple)"}
+				{"components":[{"name":"open","type":"bytes"},{"name":"close","type":"bytes"},{"name":"high","type":"bytes"},{"name":"low","type":"bytes"},{"name":"volume","type":"bytes"}],"name":"candles","type":"map(uint32,tuple)"}
 			],
 			"outputs": [
 			]
